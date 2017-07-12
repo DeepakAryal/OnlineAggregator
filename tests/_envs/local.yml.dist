@@ -1,0 +1,22 @@
+modules:
+    config:
+        Db:
+            dsn: 'mysql:host=127.0.0.1;port=3306;dbname=aggregator_db'
+            user: 'root'
+            password: 'root'
+            dump: tests/_data/dump.sql
+            cleanup: true
+            populate: true
+        PhpBrowser:
+            url: 'http://127.0.0.1:8000'
+            allow_redirects: true
+        WebDriver:
+            url: http://127.0.0.1:8000
+            host: 127.0.0.1
+            port: 4444
+            allow_redirects: true
+        Symfony:
+            app_path: app
+            environment: test
+            debug: false
+            filters: true

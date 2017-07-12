@@ -1,0 +1,13 @@
+class_name: FunctionalTester
+modules:
+    enabled:
+        - Db
+        - \Helper\Functional
+        - Symfony
+    config:
+        Db:
+            dsn: 'mysql:host=mysql;port=3306;dbname=aggregator_db'
+            user: 'root'
+            password: 'root'
+            cleanup: false
+            populate: false

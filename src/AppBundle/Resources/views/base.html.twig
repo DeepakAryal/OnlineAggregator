@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<title>Online Aggregator</title>
+
+		{% stylesheets 'bundles/app/bootstrap/css/*'  %}
+			<link rel="stylesheet" href="{{ asset_url }}" />
+		{% endstylesheets %}
+
+	</head>
+	<body style="background-color: #B2DFDB;">
+		{% block body  %}
+
+		{% endblock %}
+
+		{% block javascripts %}
+			{% javascripts 'bundles/app/bootstrap/js/*' %}
+				<script src="{{ asset_url }}"></script>
+			{% endjavascripts %}
+		{% endblock %}
+	</body>
+</html>

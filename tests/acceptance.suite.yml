@@ -1,0 +1,16 @@
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - \Helper\Acceptance
+        - PhpBrowser
+#        - WebDriver
+    config:
+        WebDriver:
+            browser: phantomjs
+            url: http:/127.0.0.1:8000
+            host: 127.0.0.1
+            port: 4444
+            wait: 5
+            window_size: 1400x1000
+            capabilities:
+                unexpectedAlertbehavior: "accept"

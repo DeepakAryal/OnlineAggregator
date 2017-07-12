@@ -1,0 +1,89 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: deepak
+ * Date: 12/21/16
+ * Time: 7:36 PM
+ */
+class ResultAvailableCest
+{
+    public function _before(AcceptanceTester $I)
+    {
+        $I->amOnPage('/');
+
+        $I->fillField('input#search_form_search_text', 'Dell inspiron 3543');
+
+        $I->click('button#search_form_search_btn');
+    }
+
+    public function testResultItemName(AcceptanceTester $I)
+    {
+        $I->wantToTest('we can see content of input');
+
+        $I->seeElement('div.input-name');
+    }
+
+    public function testKaymuHeadingAvailable(AcceptanceTester $I)
+    {
+        $I->wantToTest('we can see seperate heading for kaymu');
+
+        $I->seeElement('div.kaymu-heading');
+    }
+
+    public function testMunchaHeadingAvailable(AcceptanceTester $I)
+    {
+        $I->wantToTest('we can see seperate heading for muncha');
+
+        $I->seeElement('div.muncha-heading');
+    }
+
+    public function testSastoDealHeadingAvailable(AcceptanceTester $I)
+    {
+        $I->wantToTest('we can see seperate heading for sastodeal');
+
+        $I->seeElement('div.sastodeal-heading');
+    }
+
+    public function testKaymuItemDiv(AcceptanceTester $I)
+    {
+        $I->wantToTest('we can see seperate item div for kaymu');
+
+        $I->seeElement('div.kaymu-item');
+    }
+
+    public function testMunchaItemDiv(AcceptanceTester $I)
+    {
+        $I->wantToTest('we can see seperate item div for muncha');
+
+        $I->seeElement('div.muncha-item');
+    }
+
+    public function testSastoDealItemDiv(AcceptanceTester $I)
+    {
+        $I->wantToTest('we can see seperate item div for sastodeal');
+
+        $I->seeElement('div.sastodeal-item');
+    }
+
+    public function testItemInKaymuLink(AcceptanceTester $I)
+    {
+        $I->wantToTest('there is a link for searched item in kaymu');
+
+        $I->seeElement('a[href="http://www.kaymu.com.np/dell-inspiron-3543-laptop-1696718.html"]');
+    }
+
+    public function testItemInMunchaLink(AcceptanceTester $I)
+    {
+        $I->wantToTest('there is a link for searched item in muncha');
+
+        $I->seeElement('a[href="http://www.shop.muncha.com/56929/I/Dell-Inspiron-3543-i7-Notebook-(5th-GEN).aspx?MID=1&CID=2813"]');
+    }
+
+    public function testItemInSastoDealLink(AcceptanceTester $I)
+    {
+        $I->wantToTest('there is a link for searched item in sastoDeal');
+
+        $I->seeElement('a[href="https://www.sastodeal.com/product/dell-inspiron-3543-with-graphics-card"]');
+    }
+}

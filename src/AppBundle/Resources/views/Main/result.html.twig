@@ -1,0 +1,100 @@
+{% extends "AppBundle::base.html.twig" %}
+
+{% block body %}
+		<nav class="navbar navbar-inverse" style="border-radius:0px;" >
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<a class="navbar-brand" href="{{ path('index') }}">Online Aggregator</a>
+				</div>
+				<a href="{{ path('index') }}" class="navbar-link">
+					<p class="navbar-text navbar-right" style="color:black;border-radius:5px;display:block;background-color:#4DB6AC;padding:3px;width:100px;">Home</p>
+				</a>
+			</div>
+		</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-2"></div>
+			<div class="col-md-8">
+				<div class="well well-sm" style="background: #4DB6AC;border:0px;border-bottom: 5px solid #004D40">
+					<h4 style="margin-left:20%;">Search Results for <div class="label label-primary input-name"> {{ search_text }} </div></h4>
+				</div>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+
+		<div class="jumbotron" style="background-color:#4DB6AC;min-height: 400px;">
+			<div class="row">
+			{% if result_kaymu is not null %}
+				<div class="col-md-4 item-list">
+					<div class="panel panel-success" style="min-height: 300px;border:1px solid black;background-color: #B2DFDB;">
+						<div class="panel-heading kaymu-heading" ><a href="{{ result_kaymu.geturl }}" target="_blank"><h4>{{ search_text  }} On Kaymu</h4></a></div>
+						<div class="panel-body kaymu-item">
+							{{ result_kaymu.getproductname }}<br>
+							Price: <div class="label label-primary">Rs.{{ result_kaymu.getprice }} </div><br/>
+							{% if result_kaymu.getos is defined %}
+								Operating System: {{ result_kaymu.getos }}<br/>
+							{% endif %}
+							Processor: {{ result_kaymu.getprocessor }}<br>
+							RAM:  {{ result_kaymu.getram }}<br/>
+							Hard Disk: {{ result_kaymu.gethdd }}<br/>
+							{% if result_kaymu.getgraphics is not null%}
+								Graphics : {{ result_kaymu.getgraphics }}<br/>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			{% endif %}
+			{% if result_muncha is not null %}
+				<div class="col-md-4 item-list">
+					<div class="panel panel-success" style="min-height: 300px;border:1px solid black;background-color: #B2DFDB;">
+						<div class="panel-heading muncha-heading" ><a href="{{ result_muncha.geturl }}" target="_blank"><h4>{{ search_text  }} On Muncha</h4></a></div>
+						<div class="panel-body muncha-item">
+							{{ result_muncha.getproductname }}<br>
+							Price: <div class="label label-primary">Rs.{{ result_muncha.getprice}} </div><br/>
+							{% if result_muncha.getos is defined  %}
+								Operating System : {{ result_muncha.getos }}<br/>
+							{% endif %}
+							Processor: {{ result_muncha.getprocessor }}<br>
+							RAM: {{ result_muncha.getram }}<br/>
+							Hard Disk: {{ result_muncha.gethdd }}<br/>
+							{% if result_muncha.getgraphics is defined %}
+								Graphics: {{ result_muncha.getgraphics }}<br/>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			{% endif %}
+			{% if result_sastodeal is not null %}
+				<div class="col-md-4 item-list">
+					<div class="panel panel-success" style="min-height: 300px;background-color: #B2DFDB;border:1px solid black;">
+						<div class="panel-heading sastodeal-heading"><a href="{{ result_sastodeal.geturl }}" target="_blank"><h4>{{ search_text  }} On SastoDeal</h4></a></div>
+						<div class="panel-body sastodeal-item">
+							{{ result_sastodeal.getproductname }}<br/>
+							Price: <div class="label label-primary">Rs.{{ result_sastodeal.getprice}} </div><br/>
+							{% if result_sastodeal.getos is  defined  %}
+								Operating System : {{ result_sastodeal.getos }}<br/>
+							{% endif %}
+							Processor: {{ result_sastodeal.getprocessor }}<br>
+							RAM: {{ result_sastodeal.getram }}<br/>
+							Hard Disk: {{ result_sastodeal.gethdd }}<br/>
+							{% if result_sastodeal.getgraphics is  defined %}
+								Graphics: {{ result_sastodeal.getgraphics }}<br/>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			{% endif %}
+			{% if result_kaymu.getproductname is not defined %}
+				{% if result_muncha.getproductname is not defined %}
+					{% if result_sastodeal.getproductname is not defined %}
+						<div class="alert alert-danger no-result">
+							<strong>Sorry:</strong> We couldnot find any match of your search from  our corpus.......
+						</div>
+					{% endif %}
+				{% endif %}
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}

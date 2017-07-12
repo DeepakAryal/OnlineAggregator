@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database name="default" namespace="AppBundle\Model" defaultIdMethod="native">
+	<table name="Muncha">
+		<column name="id"    type="integer" required="true" primaryKey="true" autoIncrement="true" />
+		<column name="ProductName"  type="varchar" size="50" />
+		<column name="Price" type="varchar" size="10" />
+		<column name="OS"    type="varchar" size="30" />
+		<column name="RAM"   type="varchar" size="10" />
+		<column name="HDD"   type="varchar" size="10" />
+		<column name="Processor" type="varchar" size="50"/>
+		<column name="graphics" type="varchar"  size="50"/>
+		<column name="url"   type="varchar" size="500" />
+	</table>
+	<table name="Kaymu">
+		<column name="id"    type="integer" required="true" primaryKey="true" autoIncrement="true" />
+		<column name="ProductName"  type="varchar" size="50" />
+		<column name="Price" type="varchar" size="10" />
+		<column name="OS"    type="varchar" size="30" />
+		<column name="RAM"   type="varchar" size="10" />
+		<column name="HDD"   type="varchar" size="10" />
+		<column name="Processor" type="varchar" size="50"/>
+		<column name="graphics" type="varchar"  size="50"/>
+		<column name="url"     type="varchar" size="500" />
+	</table>
+	<table name="Sastodeal">
+		<column name="id"    type="integer" required="true" primaryKey="true" autoIncrement="true" />
+		<column name="ProductName"  type="varchar" size="50" />
+		<column name="Price" type="varchar" size="10" />
+		<column name="OS"    type="varchar" size="30" />
+		<column name="RAM"   type="varchar" size="10" />
+		<column name="HDD"   type="varchar" size="10" />
+		<column name="Processor" type="varchar" size="50"/>
+		<column name="graphics" type="varchar"  size="50"/>
+		<column name="url" type="varchar"  size="500" />
+	</table>
+</database>

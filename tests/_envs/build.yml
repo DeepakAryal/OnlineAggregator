@@ -1,0 +1,11 @@
+modules:
+    config:
+        Db:
+            dsn: 'mysql :host=mysql;port=3306;dbname=aggregator_db'
+            user: 'root'
+            password: 'root'
+            cleanup: false
+            populate: false
+        Symfony:
+            app_path: app
+            environment: test
